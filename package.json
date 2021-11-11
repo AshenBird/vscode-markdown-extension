@@ -1,0 +1,73 @@
+{
+	"name": "mcswift-mindmap",
+	"displayName": "mcswift-mindmap",
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.62.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCustomEditor:mcswift-mindmap.vscode-mindmap"
+	],
+	"main": "./out/host/index.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "mcswift-mind-map",
+				"extensions": [
+					".mmm"
+				],
+				"aliases": [
+					"mind-map"
+				]
+			}
+		],
+		"customEditors": [
+			{
+				"viewType": "mcswift-mindmap.vscode-mindmap",
+				"displayName": "MindMap",
+				"selector": [
+					{
+						"filenamePattern": "*.mmm"
+					}
+				],
+				"priority": "default"
+			}
+		]
+	},
+	"scripts": {
+		"dev:client": "vite",
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch":"node scripts/watch.js",
+		"watch:old": "cd src/host && tsc -watch -p ./",
+		"watch:client": "vite build --watch",
+		"watch:host": "vite build --watch",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.4",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.62.0",
+		"@typescript-eslint/eslint-plugin": "^5.1.0",
+		"@typescript-eslint/parser": "^5.1.0",
+		"@vscode/test-electron": "^1.6.2",
+		"cross-env": "^7.0.3",
+		"esbuild": "^0.13.13",
+		"eslint": "^8.1.0",
+		"execa": "^5.1.1",
+		"glob": "^7.1.7",
+		"mocha": "^9.1.3",
+		"typescript": "^4.4.4",
+		"vite": "^2.6.14"
+	},
+	"dependencies": {
+		"mind-elixir": "^0.18.1"
+	}
+}
