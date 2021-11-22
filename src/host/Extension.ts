@@ -1,11 +1,11 @@
 import * as vscode from 'vscode';
-import {MarkdownEditorProvider} from "./Editor";
+import {MindMapEditorProvider} from "./Editor";
 export const createMindMapExtensions = (context: vscode.ExtensionContext)=>{
 
 	let disposables:{ dispose(): any }[]=[];
   const editor = vscode.window.registerCustomEditorProvider(
     "mcswift-mindmap.vscode-mindmap",
-    new MarkdownEditorProvider(),
+    new MindMapEditorProvider(),
     { webviewOptions: { retainContextWhenHidden: true } }
   );
   disposables.push(editor);

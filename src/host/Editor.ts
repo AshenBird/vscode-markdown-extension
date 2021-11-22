@@ -22,7 +22,7 @@ interface Message {
 };
 
 
-export class MarkdownEditorProvider implements CustomTextEditorProvider {
+export class MindMapEditorProvider implements CustomTextEditorProvider {
   // constructor(private readonly drawioEditorService: DrawioEditorService) {}
   constructor() { }
   webview!: vscode.Webview;
